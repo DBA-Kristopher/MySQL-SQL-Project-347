@@ -1,0 +1,32 @@
+# 
+# 1.Store Procedure to update the HomeTeamScore and 
+# the AwayTeamScore for the current record every time the procedure is called.
+
+Delimiter $$
+Create procedure Update_Scores
+ (IN Awayscore int, IN Homescore int, IN HomeT char(5), AwayT char(5))
+ begin
+ Update Seasons 
+ set
+AwayTeamScore = Awayscore,
+HomeTeamScore =Homescore
+where AwayTeam = AwayT && HomeTeam = HomeT;
+ end$$
+ Delimiter ;
+
+# 2. Program to step through the “Season” table 
+# displaying each record and allowing the user to enter the final score for 
+# the game. Call your stored procedure from within the program updating the “Season” table.
+Delimiter $$
+Create procedure Update_Scores_Final
+ (seasn int ,IN Awayscore int, IN Homescore int, IN HomeT char(5), AwayT char(5))
+ begin
+ Update Seasons 
+ set
+AwayTeamScore = Awayscore,
+HomeTeamScore =Homescore
+where AwayTeam = AwayT && HomeTeam = HomeT;
+ end$$
+ Delimiter ;
+
+Call Update_Scores_Final (2016, 1, 3, 'Snack', 'Crack');
