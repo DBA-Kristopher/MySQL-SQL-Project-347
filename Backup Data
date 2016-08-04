@@ -1,0 +1,12 @@
+# Backup procedure and back up your “Baseball” database.
+
+Select * from pastseasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv'
+fields terminated by ',' ;
+Select * from players into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Players.csv'
+fields terminated by ',' ;
+Select * from seasons into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Seasons.csv'
+fields terminated by ',' ;
+Select * from teams into OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Teams.csv'
+fields terminated by ',' ;
+
+
