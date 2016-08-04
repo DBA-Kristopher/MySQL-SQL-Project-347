@@ -1,0 +1,45 @@
+Create database baseball;
+USE baseball;
+
+Create table Teams 
+(
+
+Teamconde VARCHAR(2),
+TNam varchar(20),
+TAddress varchar(30),
+TCity varchar(20),
+TState char(2),
+TZip varchar(7),
+Wins int,
+Losses int
+
+);
+
+Create table Players
+(
+Fname varchar(20),
+Lname varchar(30),
+MidInit char(1),
+Paddress varchar(30),
+Pcity varchar(20),
+Pstate char(2),
+Pzip varchar(9),
+Phone varchar(15),
+Teamcode varchar(2)
+);
+
+Create table Seasons 
+(
+Season Int,
+PlayDate date,
+HomeTeam char(5),
+HomeTeamScore int,
+AwayTeam Char(5),
+AwayTeamScore int
+);
+
+Create table PastSeasons as
+(Select * from Seasons); 
+
+Update Seasons
+set Season = 2017;
