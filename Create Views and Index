@@ -1,0 +1,50 @@
+create table NextSeason as select * from seasons where 1 =2;
+
+insert into nextseason
+select * from Seasons;
+
+#2.	Change the structure of “NextSeason” by adding the following field:
+# a.	Innings (Integer)
+
+Alter table nextseason add column innings int;
+
+# 3.	Change the structure of “PastSeasons” by adding the following field:
+# a.	Innings (Integer)
+
+Alter table pastseasons add column innings int;
+# 4.	Delete the table “Season”.
+drop table seasons;
+# 5.	Rename the table “NextSeason” to “Season”.
+alter table nextseason rename to Seasons;
+# 6.	Create an index on the table “Teams”, indexing on “TeamCode”.
+alter table Teams add index index_Teamcode(Teamconde);
+# 7.	Create an index on the table “Players”, indexing on “Team”.
+alter table Players add index index_Teamcode (Teamcode);
+# 8.	Based on the indexes, create a report or display of each team and the associated players on each team.
+
+#Create view index_view as
+select players.Teamcode, concat(Players.Fname) as 'First Name', Phone
+from Players
+Join Teams 
+where Players.Teamcode = Teams.Teamconde;
+
+
+
+
+# 1.	Create a view of the database showing the Team Name (TName) and  
+#    the Players last name (LastName) for all Players in the system.
+Create or replace view View_AllPlayers as
+select Lname, TNam
+from Players
+join teams
+where teams.Teamconde = Players.Teamcode;
+
+
+Select * from view_allplayers;
+
+# 2.	Create a view of the database showing the current schedule. The view should show 
+#    the HomeTeam name (TName) and the AwayTeam name (TName) and the PlayDate. The listing should be in chronological order.
+
+Create or replace view view_MatchUP as
+select PlayDate, HomeTeam, AwayTeam
+from Seasons;
