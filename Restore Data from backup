@@ -1,0 +1,11 @@
+#Restore procedure and restore your “Baseball” database from the backup.
+
+
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Pastseasons.csv' into table pastseasons
+fields terminated by ',' ;
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Players.csv' into table players
+fields terminated by ',' ;
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Seasons.csv' into table seasons
+fields terminated by ',' ;
+Load data infile 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/Teams.csv' into table teams
+fields terminated by ',' ;
